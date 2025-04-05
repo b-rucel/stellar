@@ -4,9 +4,15 @@ import Link from 'next/link'
 import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
+import { useEffect, useState } from 'react'
 
 export function Nav() {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <nav className="flex items-center justify-between w-full max-w-7xl mx-auto px-6 md:px-18 py-6 md:py-8">
@@ -37,11 +43,13 @@ export function Nav() {
           className="cursor-pointer"
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         >
-          {theme === "light" ? (
-            <Moon className="h-5 w-5" />
-          ) : (
-            <Sun className="h-5 w-5" />
-          )}
+          {mounted ? (
+            theme === "light" ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )
+          ) : null}
         </Button>
       </div>
     </nav>
