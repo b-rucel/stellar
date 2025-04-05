@@ -42,7 +42,7 @@ export default function Home() {
               hover:shadow-[0_6px_24px_-3px_rgba(79,70,229,0.6)]
               before:absolute before:inset-0 before:rounded-xl before:bg-white/10 before:opacity-0
               hover:before:opacity-100 before:transition-opacity
-              overflow-hidden">
+              overflow-hidden cursor-pointer">
               <span className="relative inline-flex items-center gap-2">
                 Begin Your Journey
                 <svg className="w-5 h-5 transform translate-x-0 group-hover:translate-x-1 transition-transform"
